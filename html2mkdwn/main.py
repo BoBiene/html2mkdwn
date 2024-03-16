@@ -11,11 +11,18 @@ class TextExtractionRequest(BaseModel):
 
 @app.post("/html/")
 async def extract_markdown(request: TextExtractionRequest):
-    markdown = trafilatura.extract(request.html_content, output_format="markdown")
-    if markdown:
-        return {"markdown": markdown}
-    else:
-        raise HTTPException(status_code=404, detail="Extraction failed")
+    try:
+        markdown = trafilatura.extract(
+            filecontent=request.html_content, output_format="markdown"
+        )
+        if markdown:
+            return {"markdown": markdown}
+        else:
+            raise HTTPException(
+                status_code=404, detail="Extraction failed: No content extracted"
+            )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Extraction error: {str(e)}")
 
 
 class URLExtractionRequest(BaseModel):
@@ -24,12 +31,17 @@ class URLExtractionRequest(BaseModel):
 
 @app.post("/url/")
 async def extract_markdown_from_url(request: URLExtractionRequest):
-    html_content = trafilatura.fetch_url(request.url)
-    markdown = trafilatura.extract(html_content, output_format="markdown")
-    if markdown:
-        return {"markdown": markdown}
-    else:
-        raise HTTPException(status_code=404, detail="Extraction failed")
+    try:
+        html_content = trafilatura.fetch_url(request.url)
+        markdown = trafilatura.extract(
+            filecontent=html_content, output_format="markdown"
+        )
+        if markdown:
+            return {"markdown": markdown}
+        else:
+            raise HTTPException(status_code=404, detail="Extraction failed")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Extraction error: {str(e)}")
 
 
 if __name__ == "__main__":
