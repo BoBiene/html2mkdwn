@@ -31,6 +31,10 @@ jobs:
     - name: Install dependencies
       run: poetry install
     
-    # Analysing the code with pylint through Poetry
+    # Install pylint temporarily using Poetry
+    - name: Install pylint temporarily
+      run: poetry run pip install pylint
+    
+    # Analysing the code with pylint
     - name: Analysing the code with pylint
       run: poetry run pylint $(git ls-files '*.py')
