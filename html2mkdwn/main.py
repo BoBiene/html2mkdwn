@@ -1,4 +1,8 @@
-"""This is the main file for the FastAPI application. It contains the logic for extracting markdown from HTML content and URLs. The application uses the trafilatura library to extract markdown from HTML content. """
+"""
+This is the main file for the FastAPI application.
+It contains the logic for extracting markdown from HTML content and URLs.
+The application uses the trafilatura library to extract markdown from HTML content.
+"""
 
 import trafilatura
 from fastapi import FastAPI, HTTPException
