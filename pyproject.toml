@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "html2mkdwn"
+version = "0.1.0"
+description = "html to markdown api (dockerized)"
+authors = ["Konstantin Auffinger <konstantinauffinger@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+trafilatura = "^1.7.0"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.28.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
