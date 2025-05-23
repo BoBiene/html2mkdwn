@@ -11,6 +11,8 @@ python = "^3.12"
 trafilatura = "^1.7.0"
 fastapi = "^0.110.0"
 uvicorn = {extras = ["standard"], version = "^0.28.0"}
+html2text = "^2024.2.26"
+beautifulsoup4 = "^4.12.3"
 
 
 [build-system]
