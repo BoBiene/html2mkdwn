@@ -1,23 +1,35 @@
 # HTML to Markdown Conversion Service
 
-This service provides an API endpoint for converting HTML content into Markdown format. It leverages the power of FastAPI for the web framework and Trafilatura for the conversion process, all containerized using Docker for easy deployment and scalability.
+This service provides an API endpoint for converting HTML content into Markdown format. It leverages FastAPI for the web framework and Trafilatura for the conversion process, all containerized using Docker for easy deployment and scalability.
+
+## Quick Start (using prebuilt image)
+
+You can use the prebuilt Docker image from the GitHub Container Registry without cloning or building:
+
+```bash
+docker run -d --name html2mkdwn -p 8000:8000 ghcr.io/bobiene/html2mkdwn:latest
+```
+
+The service is now available at `http://localhost:8000`.
+
+---
 
 ## Features
 
-- Fast and efficient HTML to Markdown conversion
-- RESTful API endpoint
-- Dockerized for easy deployment
-- Built with FastAPI and Trafilatura
+* Fast and efficient HTML to Markdown conversion
+* RESTful API endpoint
+* Dockerized for easy deployment
+* Built with FastAPI and Trafilatura
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+To set up the project for local development or to build your own image:
 
 ### Prerequisites
 
-- Docker
+* Docker
 
-### Installing
+### Installing (build your own image)
 
 Clone the repository:
 
@@ -63,16 +75,14 @@ Response:
 
 ## Development
 
-To contribute to the project or set up a development environment, follow the standard GitHub fork and pull request workflow.
+To contribute or set up a development environment, follow the standard GitHub fork and pull request workflow.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- FastAPI for the incredibly fast and efficient web framework.
-- Trafilatura for the robust HTML to Markdown conversion.
-- Docker for simplifying deployment and environment management.
-
-
+* FastAPI for the incredibly fast and efficient web framework.
+* Trafilatura for the robust HTML to Markdown conversion.
+* Docker for simplifying deployment and environment management.
